@@ -1,0 +1,13 @@
+supergraph:
+  # The socket address and port to listen on
+  # Required for Heroku
+  listen: "0.0.0.0:${env.PORT}"
+cors:
+  origins:
+    - http://localhost:3000 # Allows any locally-running client to run against your Router
+    - https://studio.apollographql.com # Allows Apollo Studio to still run queries against your Router
+headers:
+  all:
+    request:
+      - propagate:
+          named: "Authorization"
