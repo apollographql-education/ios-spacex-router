@@ -11,3 +11,11 @@ headers:
     request:
       - propagate:
           named: "Authorization"
+subscription:
+  enabled: true
+  mode:
+    passthrough:
+      all: # The router uses these subscription settings UNLESS overridden per-subgraph
+        path: /graphql # The absolute URL path to use for subgraph subscription endpoints (Default: /ws)
+        protocol: graphql_ws # The WebSocket-based subprotocol to use for subscription communication (Default: graphql_ws)
+        heartbeat_interval: 10s # Optional and 'disable' by default, also supports 'enable' (set 5s interval) and custom values for intervals, e.g. '100ms', '10s', '1m'.
